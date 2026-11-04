@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Uber Ride-Hailing Database: DBMS Project
 
 **Course:** Database Management Systems · **Year:** B.Tech 2nd year · **Team size:** 4
@@ -22,12 +23,12 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Group Lead |AASTIK |2501010008 |aastik251107 |
+| Member 2 |YASHMEET |2501010525 |yashmeetpvt-pixel |
+| Member 3 |MANN |2501010260 |mann777-ctrl |
+| Member 4 |KRISHNA SHARMA |2501010234 |Krishna4619 |
 
-**Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
+**Team No.:** T0101 · **Section:** A · **Repository URL:** https://github.com/aastik251107/DE_Project_2026
 
 ---
 
@@ -729,4 +730,6 @@ DELETE FROM trips
 WHERE status LIKE 'CANCELLED%'
   AND requested_at < '2025-02-01';
 ```
+=======
 # DE_Project_2026
+>>>>>>> 923f03e27d31a603277304d586891c0b0f5d73c1
