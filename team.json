@@ -1,0 +1,28 @@
+{
+  "team": [
+    {
+      "role": "Group Lead",
+      "name": "AASTIK",
+      "enrollment_no": "2501010008",
+      "github_username": "aastik251107"
+    },
+    {
+      "role": "Member 2",
+      "name": "YASHMEET",
+      "enrollment_no": "2501010525",
+      "github_username": "yashmeetpvt-pixel"
+    },
+    {
+      "role": "Member 3",
+      "name": "MANN",
+      "enrollment_no": "2501010260",
+      "github_username": "mann777-ctrl"
+    },
+    {
+      "role": "Member 4",
+      "name": "KRISHNA SHARMA",
+      "enrollment_no": "2501010234",
+      "github_username": "Krishna4619"
+    }
+  ]
+}
