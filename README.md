@@ -20,12 +20,12 @@
 
 ## Team details (fill in before you start)
 
-| Role | Name | Enrollment No. | GitHub Username |
-|------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Role | Name | Enrollment No. | 
+|------|------|----------------|
+| Group Lead |AASTIK YADAV |2501010008 | 
+| Member 2 |MANN |2501010260 | 
+| Member 3 |YASHMEET ANJANA |2501010525 | 
+| Member 4 |KRISHNA SHARMA  |2501010234 | 
 
 **Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
 
