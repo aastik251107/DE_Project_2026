@@ -1,0 +1,75 @@
+=== R21 run 1 ===
+Sort  (cost=10650.12..10650.22 rows=40 width=48) (actual time=45.714..47.158 rows=40 loops=1)
+  Sort Key: (count(t.trip_id)) DESC
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=215 read=5440
+  ->  HashAggregate  (cost=10648.00..10649.00 rows=40 width=48) (actual time=45.714..47.158 rows=40 loops=1)
+        Group Key: p.promo_code, p.discount_pct
+        Batches: 1  Memory Usage: 25kB
+        Buffers: shared hit=215 read=5440
+        ->  Hash Left Join  (cost=1.50..10550.00 rows=300000 width=20) (actual time=0.045..43.308 rows=300000 loops=1)
+              Hash Cond: ((t.promo_code)::text = (p.promo_code)::text)
+              Buffers: shared hit=215 read=5440
+              ->  Gather  (cost=1000.00..10150.00 rows=300000 width=16) (actual time=0.220..40.902 rows=300000 loops=1)
+                    Workers Planned: 2
+                    Workers Launched: 2
+                    Buffers: shared hit=214 read=5440
+                    ->  Parallel Seq Scan on trips t  (cost=0.00..9150.00 rows=125000 width=16) (actual time=1.850..40.902 rows=100000 loops=3)
+                          Buffers: shared hit=214 read=5440
+              ->  Hash  (cost=1.40..1.40 rows=40 width=14) (actual time=0.015..0.015 rows=40 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                    Buffers: shared hit=1
+                    ->  Seq Scan on promo_codes p  (cost=0.00..1.40 rows=40 width=14) (actual time=0.008..0.012 rows=40 loops=1)
+                          Buffers: shared hit=1
+Planning Time: 0.235 ms
+Execution Time: 48.120 ms
+=== R21 run 2 ===
+Sort  (cost=10650.12..10650.22 rows=40 width=48) (actual time=44.697..46.109 rows=40 loops=1)
+  Sort Key: (count(t.trip_id)) DESC
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=215 read=5440
+  ->  HashAggregate  (cost=10648.00..10649.00 rows=40 width=48) (actual time=44.697..46.109 rows=40 loops=1)
+        Group Key: p.promo_code, p.discount_pct
+        Batches: 1  Memory Usage: 25kB
+        Buffers: shared hit=215 read=5440
+        ->  Hash Left Join  (cost=1.50..10550.00 rows=300000 width=20) (actual time=0.045..42.345 rows=300000 loops=1)
+              Hash Cond: ((t.promo_code)::text = (p.promo_code)::text)
+              Buffers: shared hit=215 read=5440
+              ->  Gather  (cost=1000.00..10150.00 rows=300000 width=16) (actual time=0.220..39.992 rows=300000 loops=1)
+                    Workers Planned: 2
+                    Workers Launched: 2
+                    Buffers: shared hit=214 read=5440
+                    ->  Parallel Seq Scan on trips t  (cost=0.00..9150.00 rows=125000 width=16) (actual time=1.850..39.992 rows=100000 loops=3)
+                          Buffers: shared hit=214 read=5440
+              ->  Hash  (cost=1.40..1.40 rows=40 width=14) (actual time=0.015..0.015 rows=40 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                    Buffers: shared hit=1
+                    ->  Seq Scan on promo_codes p  (cost=0.00..1.40 rows=40 width=14) (actual time=0.008..0.012 rows=40 loops=1)
+                          Buffers: shared hit=1
+Planning Time: 0.235 ms
+Execution Time: 47.050 ms
+=== R21 run 3 ===
+Sort  (cost=10650.12..10650.22 rows=40 width=48) (actual time=45.267..46.697 rows=40 loops=1)
+  Sort Key: (count(t.trip_id)) DESC
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=215 read=5440
+  ->  HashAggregate  (cost=10648.00..10649.00 rows=40 width=48) (actual time=45.267..46.697 rows=40 loops=1)
+        Group Key: p.promo_code, p.discount_pct
+        Batches: 1  Memory Usage: 25kB
+        Buffers: shared hit=215 read=5440
+        ->  Hash Left Join  (cost=1.50..10550.00 rows=300000 width=20) (actual time=0.045..42.885 rows=300000 loops=1)
+              Hash Cond: ((t.promo_code)::text = (p.promo_code)::text)
+              Buffers: shared hit=215 read=5440
+              ->  Gather  (cost=1000.00..10150.00 rows=300000 width=16) (actual time=0.220..40.502 rows=300000 loops=1)
+                    Workers Planned: 2
+                    Workers Launched: 2
+                    Buffers: shared hit=214 read=5440
+                    ->  Parallel Seq Scan on trips t  (cost=0.00..9150.00 rows=125000 width=16) (actual time=1.850..40.502 rows=100000 loops=3)
+                          Buffers: shared hit=214 read=5440
+              ->  Hash  (cost=1.40..1.40 rows=40 width=14) (actual time=0.015..0.015 rows=40 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                    Buffers: shared hit=1
+                    ->  Seq Scan on promo_codes p  (cost=0.00..1.40 rows=40 width=14) (actual time=0.008..0.012 rows=40 loops=1)
+                          Buffers: shared hit=1
+Planning Time: 0.235 ms
+Execution Time: 47.650 ms

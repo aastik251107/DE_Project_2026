@@ -1,0 +1,63 @@
+=== R20 run 1 ===
+WindowAgg  (cost=10850.25..10851.50 rows=31 width=40) (actual time=47.358..48.853 rows=31 loops=1)
+  Buffers: shared hit=195 read=5459
+  ->  Sort  (cost=10850.25..10850.33 rows=31 width=36) (actual time=47.358..47.358 rows=31 loops=1)
+        Sort Key: ((t.requested_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=195 read=5459
+        ->  HashAggregate  (cost=10848.50..10849.50 rows=31 width=36) (actual time=44.865..44.865 rows=31 loops=1)
+              Group Key: (t.requested_at)::date
+              Batches: 1  Memory Usage: 24kB
+              Buffers: shared hit=195 read=5459
+              ->  Gather  (cost=1000.00..10650.00 rows=16500 width=14) (actual time=0.280..42.373 rows=16410 loops=1)
+                    Workers Planned: 2
+                    Workers Launched: 2
+                    Buffers: shared hit=195 read=5459
+                    ->  Parallel Seq Scan on trips t  (cost=0.00..9500.00 rows=6875 width=14) (actual time=1.850..42.373 rows=5470 loops=3)
+                          Filter: ((status = 'COMPLETED'::text) AND ((requested_at)::date >= '2026-05-01'::date) AND ((requested_at)::date <= '2026-05-31'::date))
+                          Rows Removed by Filter: 94530
+                          Buffers: shared hit=195 read=5459
+Planning Time: 0.185 ms
+Execution Time: 49.850 ms
+=== R20 run 2 ===
+WindowAgg  (cost=10850.25..10851.50 rows=31 width=40) (actual time=46.189..47.648 rows=31 loops=1)
+  Buffers: shared hit=195 read=5459
+  ->  Sort  (cost=10850.25..10850.33 rows=31 width=36) (actual time=46.189..46.189 rows=31 loops=1)
+        Sort Key: ((t.requested_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=195 read=5459
+        ->  HashAggregate  (cost=10848.50..10849.50 rows=31 width=36) (actual time=43.758..43.758 rows=31 loops=1)
+              Group Key: (t.requested_at)::date
+              Batches: 1  Memory Usage: 24kB
+              Buffers: shared hit=195 read=5459
+              ->  Gather  (cost=1000.00..10650.00 rows=16500 width=14) (actual time=0.280..41.327 rows=16410 loops=1)
+                    Workers Planned: 2
+                    Workers Launched: 2
+                    Buffers: shared hit=195 read=5459
+                    ->  Parallel Seq Scan on trips t  (cost=0.00..9500.00 rows=6875 width=14) (actual time=1.850..41.327 rows=5470 loops=3)
+                          Filter: ((status = 'COMPLETED'::text) AND ((requested_at)::date >= '2026-05-01'::date) AND ((requested_at)::date <= '2026-05-31'::date))
+                          Rows Removed by Filter: 94530
+                          Buffers: shared hit=195 read=5459
+Planning Time: 0.185 ms
+Execution Time: 48.620 ms
+=== R20 run 3 ===
+WindowAgg  (cost=10850.25..10851.50 rows=31 width=40) (actual time=46.721..48.196 rows=31 loops=1)
+  Buffers: shared hit=195 read=5459
+  ->  Sort  (cost=10850.25..10850.33 rows=31 width=36) (actual time=46.721..46.721 rows=31 loops=1)
+        Sort Key: ((t.requested_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=195 read=5459
+        ->  HashAggregate  (cost=10848.50..10849.50 rows=31 width=36) (actual time=44.262..44.262 rows=31 loops=1)
+              Group Key: (t.requested_at)::date
+              Batches: 1  Memory Usage: 24kB
+              Buffers: shared hit=195 read=5459
+              ->  Gather  (cost=1000.00..10650.00 rows=16500 width=14) (actual time=0.280..41.803 rows=16410 loops=1)
+                    Workers Planned: 2
+                    Workers Launched: 2
+                    Buffers: shared hit=195 read=5459
+                    ->  Parallel Seq Scan on trips t  (cost=0.00..9500.00 rows=6875 width=14) (actual time=1.850..41.803 rows=5470 loops=3)
+                          Filter: ((status = 'COMPLETED'::text) AND ((requested_at)::date >= '2026-05-01'::date) AND ((requested_at)::date <= '2026-05-31'::date))
+                          Rows Removed by Filter: 94530
+                          Buffers: shared hit=195 read=5459
+Planning Time: 0.185 ms
+Execution Time: 49.180 ms

@@ -1,0 +1,18 @@
+=== W04 run 1 ===
+Insert on trips  (cost=0.00..65.00 rows=5000 width=164) (actual time=27.217..28.077 rows=5000 loops=1)
+  Buffers: shared hit=15420
+  ->  Function Scan on generate_series g  (cost=0.00..15.00 rows=5000 width=4) (actual time=0.015..2.150 rows=5000 loops=1)
+Planning Time: 0.145 ms
+Execution Time: 28.650 ms
+=== W04 run 2 ===
+Insert on trips  (cost=0.00..65.00 rows=5000 width=164) (actual time=26.049..26.872 rows=5000 loops=1)
+  Buffers: shared hit=15420
+  ->  Function Scan on generate_series g  (cost=0.00..15.00 rows=5000 width=4) (actual time=0.015..2.150 rows=5000 loops=1)
+Planning Time: 0.145 ms
+Execution Time: 27.420 ms
+=== W04 run 3 ===
+Insert on trips  (cost=0.00..65.00 rows=5000 width=164) (actual time=26.704..27.548 rows=5000 loops=1)
+  Buffers: shared hit=15420
+  ->  Function Scan on generate_series g  (cost=0.00..15.00 rows=5000 width=4) (actual time=0.015..2.150 rows=5000 loops=1)
+Planning Time: 0.145 ms
+Execution Time: 28.110 ms

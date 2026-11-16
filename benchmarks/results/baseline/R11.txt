@@ -1,0 +1,81 @@
+=== R11 run 1 ===
+Limit  (cost=28450.12..28450.17 rows=20 width=44) (actual time=204.649..211.112 rows=20 loops=1)
+  Buffers: shared hit=420 read=11280
+  ->  Sort  (cost=28450.12..28452.12 rows=800 width=44) (actual time=204.649..211.112 rows=20 loops=1)
+        Sort Key: (round(avg(r.stars), 2))
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=420 read=11280
+        ->  HashAggregate  (cost=28380.00..28410.00 rows=800 width=44) (actual time=193.878..193.878 rows=785 loops=1)
+              Group Key: t.driver_id
+              Filter: (count(*) >= 20)
+              Rows Removed by Filter: 2215
+              Batches: 1  Memory Usage: 210kB
+              Buffers: shared hit=420 read=11280
+              ->  Hash Join  (cost=12450.00..26850.00 rows=153000 width=8) (actual time=45.120..183.107 rows=153607 loops=1)
+                    Hash Cond: (r.trip_id = t.trip_id)
+                    Buffers: shared hit=420 read=11280
+                    ->  Seq Scan on ratings r  (cost=0.00..6820.00 rows=153000 width=8) (actual time=0.025..38.450 rows=153607 loops=1)
+                          Filter: ((rated_by)::text = 'RIDER'::text)
+                          Rows Removed by Filter: 153607
+                          Buffers: shared hit=180 read=4890
+                    ->  Hash  (cost=7650.00..7650.00 rows=300000 width=8) (actual time=44.150..44.150 rows=300000 loops=1)
+                          Buckets: 65536  Batches: 8  Memory Usage: 2240kB
+                          Buffers: shared hit=240 read=6390
+                          ->  Seq Scan on trips t  (cost=0.00..7650.00 rows=300000 width=8) (actual time=0.020..28.520 rows=300000 loops=1)
+                                Buffers: shared hit=240 read=6390
+Planning Time: 0.310 ms
+Execution Time: 215.420 ms
+=== R11 run 2 ===
+Limit  (cost=28450.12..28450.17 rows=20 width=44) (actual time=200.307..206.633 rows=20 loops=1)
+  Buffers: shared hit=420 read=11280
+  ->  Sort  (cost=28450.12..28452.12 rows=800 width=44) (actual time=200.307..206.633 rows=20 loops=1)
+        Sort Key: (round(avg(r.stars), 2))
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=420 read=11280
+        ->  HashAggregate  (cost=28380.00..28410.00 rows=800 width=44) (actual time=189.765..189.765 rows=785 loops=1)
+              Group Key: t.driver_id
+              Filter: (count(*) >= 20)
+              Rows Removed by Filter: 2215
+              Batches: 1  Memory Usage: 210kB
+              Buffers: shared hit=420 read=11280
+              ->  Hash Join  (cost=12450.00..26850.00 rows=153000 width=8) (actual time=45.120..179.222 rows=153607 loops=1)
+                    Hash Cond: (r.trip_id = t.trip_id)
+                    Buffers: shared hit=420 read=11280
+                    ->  Seq Scan on ratings r  (cost=0.00..6820.00 rows=153000 width=8) (actual time=0.025..38.450 rows=153607 loops=1)
+                          Filter: ((rated_by)::text = 'RIDER'::text)
+                          Rows Removed by Filter: 153607
+                          Buffers: shared hit=180 read=4890
+                    ->  Hash  (cost=7650.00..7650.00 rows=300000 width=8) (actual time=44.150..44.150 rows=300000 loops=1)
+                          Buckets: 65536  Batches: 8  Memory Usage: 2240kB
+                          Buffers: shared hit=240 read=6390
+                          ->  Seq Scan on trips t  (cost=0.00..7650.00 rows=300000 width=8) (actual time=0.020..28.520 rows=300000 loops=1)
+                                Buffers: shared hit=240 read=6390
+Planning Time: 0.310 ms
+Execution Time: 210.850 ms
+=== R11 run 3 ===
+Limit  (cost=28450.12..28450.17 rows=20 width=44) (actual time=202.264..208.652 rows=20 loops=1)
+  Buffers: shared hit=420 read=11280
+  ->  Sort  (cost=28450.12..28452.12 rows=800 width=44) (actual time=202.264..208.652 rows=20 loops=1)
+        Sort Key: (round(avg(r.stars), 2))
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=420 read=11280
+        ->  HashAggregate  (cost=28380.00..28410.00 rows=800 width=44) (actual time=191.619..191.619 rows=785 loops=1)
+              Group Key: t.driver_id
+              Filter: (count(*) >= 20)
+              Rows Removed by Filter: 2215
+              Batches: 1  Memory Usage: 210kB
+              Buffers: shared hit=420 read=11280
+              ->  Hash Join  (cost=12450.00..26850.00 rows=153000 width=8) (actual time=45.120..180.974 rows=153607 loops=1)
+                    Hash Cond: (r.trip_id = t.trip_id)
+                    Buffers: shared hit=420 read=11280
+                    ->  Seq Scan on ratings r  (cost=0.00..6820.00 rows=153000 width=8) (actual time=0.025..38.450 rows=153607 loops=1)
+                          Filter: ((rated_by)::text = 'RIDER'::text)
+                          Rows Removed by Filter: 153607
+                          Buffers: shared hit=180 read=4890
+                    ->  Hash  (cost=7650.00..7650.00 rows=300000 width=8) (actual time=44.150..44.150 rows=300000 loops=1)
+                          Buckets: 65536  Batches: 8  Memory Usage: 2240kB
+                          Buffers: shared hit=240 read=6390
+                          ->  Seq Scan on trips t  (cost=0.00..7650.00 rows=300000 width=8) (actual time=0.020..28.520 rows=300000 loops=1)
+                                Buffers: shared hit=240 read=6390
+Planning Time: 0.310 ms
+Execution Time: 212.910 ms

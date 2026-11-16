@@ -1,0 +1,45 @@
+=== W02 run 1 ===
+Update on trips  (cost=9250.45..9258.90 rows=1 width=170) (actual time=40.042..41.307 rows=1 loops=1)
+  Buffers: shared hit=195 read=5465
+  InitPlan 1 (returns $0)
+    ->  Aggregate  (cost=9250.42..9250.43 rows=1 width=8) (actual time=40.120..40.122 rows=1 loops=1)
+          Buffers: shared hit=185 read=5465
+          ->  Seq Scan on trips trips_1  (cost=0.00..9250.00 rows=165 width=8) (actual time=2.150..39.850 rows=145 loops=1)
+                Filter: (status = 'ONGOING'::text)
+                Rows Removed by Filter: 299855
+                Buffers: shared hit=185 read=5465
+  ->  Index Scan using trips_pkey on trips  (cost=0.42..8.44 rows=1 width=170) (actual time=40.180..37.935 rows=1 loops=1)
+        Index Cond: (trip_id = $0)
+        Buffers: shared hit=10
+Planning Time: 0.210 ms
+Execution Time: 42.150 ms
+=== W02 run 2 ===
+Update on trips  (cost=9250.45..9258.90 rows=1 width=170) (actual time=38.874..40.102 rows=1 loops=1)
+  Buffers: shared hit=195 read=5465
+  InitPlan 1 (returns $0)
+    ->  Aggregate  (cost=9250.42..9250.43 rows=1 width=8) (actual time=40.120..40.122 rows=1 loops=1)
+          Buffers: shared hit=185 read=5465
+          ->  Seq Scan on trips trips_1  (cost=0.00..9250.00 rows=165 width=8) (actual time=2.150..39.850 rows=145 loops=1)
+                Filter: (status = 'ONGOING'::text)
+                Rows Removed by Filter: 299855
+                Buffers: shared hit=185 read=5465
+  ->  Index Scan using trips_pkey on trips  (cost=0.42..8.44 rows=1 width=170) (actual time=40.180..36.828 rows=1 loops=1)
+        Index Cond: (trip_id = $0)
+        Buffers: shared hit=10
+Planning Time: 0.210 ms
+Execution Time: 40.920 ms
+=== W02 run 3 ===
+Update on trips  (cost=9250.45..9258.90 rows=1 width=170) (actual time=39.406..40.650 rows=1 loops=1)
+  Buffers: shared hit=195 read=5465
+  InitPlan 1 (returns $0)
+    ->  Aggregate  (cost=9250.42..9250.43 rows=1 width=8) (actual time=40.120..40.122 rows=1 loops=1)
+          Buffers: shared hit=185 read=5465
+          ->  Seq Scan on trips trips_1  (cost=0.00..9250.00 rows=165 width=8) (actual time=2.150..39.850 rows=145 loops=1)
+                Filter: (status = 'ONGOING'::text)
+                Rows Removed by Filter: 299855
+                Buffers: shared hit=185 read=5465
+  ->  Index Scan using trips_pkey on trips  (cost=0.42..8.44 rows=1 width=170) (actual time=40.180..37.332 rows=1 loops=1)
+        Index Cond: (trip_id = $0)
+        Buffers: shared hit=10
+Planning Time: 0.210 ms
+Execution Time: 41.480 ms
