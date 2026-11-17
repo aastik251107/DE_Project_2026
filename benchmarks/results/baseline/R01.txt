@@ -1,51 +1,9 @@
-=== R01 run 1 ===
-Limit  (cost=10245.12..10245.17 rows=20 width=164) (actual time=42.038..43.365 rows=20 loops=1)
-  Buffers: shared hit=125 read=5529
-  ->  Sort  (cost=10245.12..10245.18 rows=24 width=164) (actual time=42.038..43.365 rows=20 loops=1)
-        Sort Key: requested_at DESC
-        Sort Method: top-N heapsort  Memory: 29kB
-        Buffers: shared hit=125 read=5529
-        ->  Gather  (cost=1000.00..10244.52 rows=24 width=164) (actual time=0.380..39.825 rows=24 loops=1)
-              Workers Planned: 2
-              Workers Launched: 2
-              Buffers: shared hit=125 read=5529
-              ->  Parallel Seq Scan on trips  (cost=0.00..9242.12 rows=10 width=164) (actual time=2.110..37.612 rows=8 loops=3)
-                    Filter: (rider_id = 1042)
-                    Rows Removed by Filter: 99992
-                    Buffers: shared hit=125 read=5529
+Run 1:
 Planning Time: 0.185 ms
 Execution Time: 44.250 ms
-=== R01 run 2 ===
-Limit  (cost=10245.12..10245.17 rows=20 width=164) (actual time=40.964..42.258 rows=20 loops=1)
-  Buffers: shared hit=125 read=5529
-  ->  Sort  (cost=10245.12..10245.18 rows=24 width=164) (actual time=40.964..42.258 rows=20 loops=1)
-        Sort Key: requested_at DESC
-        Sort Method: top-N heapsort  Memory: 29kB
-        Buffers: shared hit=125 read=5529
-        ->  Gather  (cost=1000.00..10244.52 rows=24 width=164) (actual time=0.380..38.808 rows=24 loops=1)
-              Workers Planned: 2
-              Workers Launched: 2
-              Buffers: shared hit=125 read=5529
-              ->  Parallel Seq Scan on trips  (cost=0.00..9242.12 rows=10 width=164) (actual time=2.110..36.652 rows=8 loops=3)
-                    Filter: (rider_id = 1042)
-                    Rows Removed by Filter: 99992
-                    Buffers: shared hit=125 read=5529
+Run 2:
 Planning Time: 0.185 ms
 Execution Time: 43.120 ms
-=== R01 run 3 ===
-Limit  (cost=10245.12..10245.17 rows=20 width=164) (actual time=41.695..43.012 rows=20 loops=1)
-  Buffers: shared hit=125 read=5529
-  ->  Sort  (cost=10245.12..10245.18 rows=24 width=164) (actual time=41.695..43.012 rows=20 loops=1)
-        Sort Key: requested_at DESC
-        Sort Method: top-N heapsort  Memory: 29kB
-        Buffers: shared hit=125 read=5529
-        ->  Gather  (cost=1000.00..10244.52 rows=24 width=164) (actual time=0.380..39.501 rows=24 loops=1)
-              Workers Planned: 2
-              Workers Launched: 2
-              Buffers: shared hit=125 read=5529
-              ->  Parallel Seq Scan on trips  (cost=0.00..9242.12 rows=10 width=164) (actual time=2.110..37.306 rows=8 loops=3)
-                    Filter: (rider_id = 1042)
-                    Rows Removed by Filter: 99992
-                    Buffers: shared hit=125 read=5529
+Run 3:
 Planning Time: 0.185 ms
 Execution Time: 43.890 ms

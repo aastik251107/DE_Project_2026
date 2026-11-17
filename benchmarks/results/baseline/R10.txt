@@ -1,48 +1,9 @@
-=== R10 run 1 ===
-Seq Scan on drivers d  (cost=9620.10..9710.25 rows=250 width=36) (actual time=43.054..44.414 rows=215 loops=1)
-  Filter: (((status)::text = 'ACTIVE'::text) AND (NOT (hashed SubPlan 1)))
-  Rows Removed by Filter: 2785
-  Buffers: shared hit=195 read=5540
-  SubPlan 1
-    ->  Gather  (cost=1000.00..9580.10 rows=16020 width=4) (actual time=0.320..40.788 rows=15840 loops=1)
-          Workers Planned: 2
-          Workers Launched: 2
-          Buffers: shared hit=165 read=5489
-          ->  Parallel Seq Scan on trips t  (cost=0.00..9180.10 rows=6675 width=4) (actual time=1.950..38.522 rows=5280 loops=3)
-                Filter: (requested_at >= '2026-06-25 00:00:00+05:30'::timestamp with time zone)
-                Rows Removed by Filter: 94720
-                Buffers: shared hit=165 read=5489
+Run 1:
 Planning Time: 0.215 ms
 Execution Time: 45.320 ms
-=== R10 run 2 ===
-Seq Scan on drivers d  (cost=9620.10..9710.25 rows=250 width=36) (actual time=41.971..43.296 rows=215 loops=1)
-  Filter: (((status)::text = 'ACTIVE'::text) AND (NOT (hashed SubPlan 1)))
-  Rows Removed by Filter: 2785
-  Buffers: shared hit=195 read=5540
-  SubPlan 1
-    ->  Gather  (cost=1000.00..9580.10 rows=16020 width=4) (actual time=0.320..39.762 rows=15840 loops=1)
-          Workers Planned: 2
-          Workers Launched: 2
-          Buffers: shared hit=165 read=5489
-          ->  Parallel Seq Scan on trips t  (cost=0.00..9180.10 rows=6675 width=4) (actual time=1.950..37.553 rows=5280 loops=3)
-                Filter: (requested_at >= '2026-06-25 00:00:00+05:30'::timestamp with time zone)
-                Rows Removed by Filter: 94720
-                Buffers: shared hit=165 read=5489
+Run 2:
 Planning Time: 0.215 ms
 Execution Time: 44.180 ms
-=== R10 run 3 ===
-Seq Scan on drivers d  (cost=9620.10..9710.25 rows=250 width=36) (actual time=42.512..43.855 rows=215 loops=1)
-  Filter: (((status)::text = 'ACTIVE'::text) AND (NOT (hashed SubPlan 1)))
-  Rows Removed by Filter: 2785
-  Buffers: shared hit=195 read=5540
-  SubPlan 1
-    ->  Gather  (cost=1000.00..9580.10 rows=16020 width=4) (actual time=0.320..40.275 rows=15840 loops=1)
-          Workers Planned: 2
-          Workers Launched: 2
-          Buffers: shared hit=165 read=5489
-          ->  Parallel Seq Scan on trips t  (cost=0.00..9180.10 rows=6675 width=4) (actual time=1.950..38.038 rows=5280 loops=3)
-                Filter: (requested_at >= '2026-06-25 00:00:00+05:30'::timestamp with time zone)
-                Rows Removed by Filter: 94720
-                Buffers: shared hit=165 read=5489
+Run 3:
 Planning Time: 0.215 ms
 Execution Time: 44.750 ms

@@ -1,54 +1,9 @@
-=== R23 run 1 ===
-Sort  (cost=11250.12..11250.32 rows=80 width=48) (actual time=68.828..71.001 rows=60 loops=1)
-  Sort Key: city_id, (date_trunc('month'::text, requested_at))
-  Sort Method: quicksort  Memory: 28kB
-  Buffers: shared hit=240 read=5414
-  ->  GroupAggregate  (cost=11240.00..11246.00 rows=80 width=48) (actual time=48.250..65.205 rows=60 loops=1)
-        Group Key: city_id, (date_trunc('month'::text, requested_at))
-        Buffers: shared hit=240 read=5414
-        ->  Sort  (cost=11240.00..11242.00 rows=105000 width=16) (actual time=45.120..61.583 rows=104250 loops=1)
-              Sort Key: city_id, (date_trunc('month'::text, requested_at))
-              Sort Method: quicksort  Memory: 8250kB
-              Buffers: shared hit=240 read=5414
-              ->  Seq Scan on trips  (cost=0.00..9850.00 rows=105000 width=16) (actual time=0.025..35.450 rows=104250 loops=1)
-                    Filter: (requested_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
-                    Rows Removed by Filter: 195750
-                    Buffers: shared hit=240 read=5414
+Run 1:
 Planning Time: 0.175 ms
 Execution Time: 72.450 ms
-=== R23 run 2 ===
-Sort  (cost=11250.12..11250.32 rows=80 width=48) (actual time=67.279..69.404 rows=60 loops=1)
-  Sort Key: city_id, (date_trunc('month'::text, requested_at))
-  Sort Method: quicksort  Memory: 28kB
-  Buffers: shared hit=240 read=5414
-  ->  GroupAggregate  (cost=11240.00..11246.00 rows=80 width=48) (actual time=48.250..63.738 rows=60 loops=1)
-        Group Key: city_id, (date_trunc('month'::text, requested_at))
-        Buffers: shared hit=240 read=5414
-        ->  Sort  (cost=11240.00..11242.00 rows=105000 width=16) (actual time=45.120..60.197 rows=104250 loops=1)
-              Sort Key: city_id, (date_trunc('month'::text, requested_at))
-              Sort Method: quicksort  Memory: 8250kB
-              Buffers: shared hit=240 read=5414
-              ->  Seq Scan on trips  (cost=0.00..9850.00 rows=105000 width=16) (actual time=0.025..35.450 rows=104250 loops=1)
-                    Filter: (requested_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
-                    Rows Removed by Filter: 195750
-                    Buffers: shared hit=240 read=5414
+Run 2:
 Planning Time: 0.175 ms
 Execution Time: 70.820 ms
-=== R23 run 3 ===
-Sort  (cost=11250.12..11250.32 rows=80 width=48) (actual time=68.001..70.148 rows=60 loops=1)
-  Sort Key: city_id, (date_trunc('month'::text, requested_at))
-  Sort Method: quicksort  Memory: 28kB
-  Buffers: shared hit=240 read=5414
-  ->  GroupAggregate  (cost=11240.00..11246.00 rows=80 width=48) (actual time=48.250..64.422 rows=60 loops=1)
-        Group Key: city_id, (date_trunc('month'::text, requested_at))
-        Buffers: shared hit=240 read=5414
-        ->  Sort  (cost=11240.00..11242.00 rows=105000 width=16) (actual time=45.120..60.843 rows=104250 loops=1)
-              Sort Key: city_id, (date_trunc('month'::text, requested_at))
-              Sort Method: quicksort  Memory: 8250kB
-              Buffers: shared hit=240 read=5414
-              ->  Seq Scan on trips  (cost=0.00..9850.00 rows=105000 width=16) (actual time=0.025..35.450 rows=104250 loops=1)
-                    Filter: (requested_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
-                    Rows Removed by Filter: 195750
-                    Buffers: shared hit=240 read=5414
+Run 3:
 Planning Time: 0.175 ms
 Execution Time: 71.580 ms

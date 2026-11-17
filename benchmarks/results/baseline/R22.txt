@@ -1,63 +1,9 @@
-=== R22 run 1 ===
-Sort  (cost=6485.50..6486.25 rows=280 width=52) (actual time=34.627..35.721 rows=265 loops=1)
-  Sort Key: p.paid_at DESC
-  Sort Method: quicksort  Memory: 48kB
-  Buffers: shared hit=1250 read=4140
-  ->  Nested Loop  (cost=0.84..6472.00 rows=280 width=52) (actual time=2.150..32.805 rows=265 loops=1)
-        Buffers: shared hit=1250 read=4140
-        ->  Nested Loop  (cost=0.42..4120.00 rows=280 width=36) (actual time=1.850..30.983 rows=265 loops=1)
-              Buffers: shared hit=650 read=4140
-              ->  Seq Scan on payments p  (cost=0.00..3850.00 rows=280 width=28) (actual time=1.250..31.450 rows=265 loops=1)
-                    Filter: (((payment_status)::text = 'FAILED'::text) AND (paid_at >= '2026-06-24 00:00:00+05:30'::timestamp with time zone))
-                    Rows Removed by Filter: 245574
-                    Buffers: shared hit=150 read=4140
-              ->  Index Scan using trips_pkey on trips t  (cost=0.42..0.95 rows=1 width=12) (actual time=0.008..0.009 rows=1 loops=265)
-                    Index Cond: (trip_id = p.trip_id)
-                    Buffers: shared hit=500
-        ->  Index Scan using riders_pkey on riders r  (cost=0.42..8.40 rows=1 width=20) (actual time=0.008..0.009 rows=1 loops=265)
-              Index Cond: (rider_id = t.rider_id)
-              Buffers: shared hit=600
+Run 1:
 Planning Time: 0.315 ms
 Execution Time: 36.450 ms
-=== R22 run 2 ===
-Sort  (cost=6485.50..6486.25 rows=280 width=52) (actual time=33.450..34.506 rows=265 loops=1)
-  Sort Key: p.paid_at DESC
-  Sort Method: quicksort  Memory: 48kB
-  Buffers: shared hit=1250 read=4140
-  ->  Nested Loop  (cost=0.84..6472.00 rows=280 width=52) (actual time=2.150..31.689 rows=265 loops=1)
-        Buffers: shared hit=1250 read=4140
-        ->  Nested Loop  (cost=0.42..4120.00 rows=280 width=36) (actual time=1.850..29.928 rows=265 loops=1)
-              Buffers: shared hit=650 read=4140
-              ->  Seq Scan on payments p  (cost=0.00..3850.00 rows=280 width=28) (actual time=1.250..31.450 rows=265 loops=1)
-                    Filter: (((payment_status)::text = 'FAILED'::text) AND (paid_at >= '2026-06-24 00:00:00+05:30'::timestamp with time zone))
-                    Rows Removed by Filter: 245574
-                    Buffers: shared hit=150 read=4140
-              ->  Index Scan using trips_pkey on trips t  (cost=0.42..0.95 rows=1 width=12) (actual time=0.008..0.009 rows=1 loops=265)
-                    Index Cond: (trip_id = p.trip_id)
-                    Buffers: shared hit=500
-        ->  Index Scan using riders_pkey on riders r  (cost=0.42..8.40 rows=1 width=20) (actual time=0.008..0.009 rows=1 loops=265)
-              Index Cond: (rider_id = t.rider_id)
-              Buffers: shared hit=600
+Run 2:
 Planning Time: 0.315 ms
 Execution Time: 35.210 ms
-=== R22 run 3 ===
-Sort  (cost=6485.50..6486.25 rows=280 width=52) (actual time=34.086..35.162 rows=265 loops=1)
-  Sort Key: p.paid_at DESC
-  Sort Method: quicksort  Memory: 48kB
-  Buffers: shared hit=1250 read=4140
-  ->  Nested Loop  (cost=0.84..6472.00 rows=280 width=52) (actual time=2.150..32.292 rows=265 loops=1)
-        Buffers: shared hit=1250 read=4140
-        ->  Nested Loop  (cost=0.42..4120.00 rows=280 width=36) (actual time=1.850..30.498 rows=265 loops=1)
-              Buffers: shared hit=650 read=4140
-              ->  Seq Scan on payments p  (cost=0.00..3850.00 rows=280 width=28) (actual time=1.250..31.450 rows=265 loops=1)
-                    Filter: (((payment_status)::text = 'FAILED'::text) AND (paid_at >= '2026-06-24 00:00:00+05:30'::timestamp with time zone))
-                    Rows Removed by Filter: 245574
-                    Buffers: shared hit=150 read=4140
-              ->  Index Scan using trips_pkey on trips t  (cost=0.42..0.95 rows=1 width=12) (actual time=0.008..0.009 rows=1 loops=265)
-                    Index Cond: (trip_id = p.trip_id)
-                    Buffers: shared hit=500
-        ->  Index Scan using riders_pkey on riders r  (cost=0.42..8.40 rows=1 width=20) (actual time=0.008..0.009 rows=1 loops=265)
-              Index Cond: (rider_id = t.rider_id)
-              Buffers: shared hit=600
+Run 3:
 Planning Time: 0.315 ms
 Execution Time: 35.880 ms

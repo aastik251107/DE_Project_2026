@@ -42,8 +42,8 @@ for f in $(ls "$TMP"/*.sql | sort -V); do
       sql="SET search_path TO uber; EXPLAIN (ANALYZE, BUFFERS) $query"
     fi
     plan="$(printf '%s\n' "$sql" | psql -d "$DB" -X -q -A -t -v ON_ERROR_STOP=1)"
-    echo "=== $id run $i ===" >> "$OUT/$id.txt"
-    echo "$plan" >> "$OUT/$id.txt"
+    echo "Run $i:" >> "$OUT/$id.txt"
+    echo "$plan" | grep -E '^(Planning Time|Execution Time):' >> "$OUT/$id.txt"
     t="$(echo "$plan" | grep -oE 'Execution Time: [0-9.]+' | awk '{print $3}')"
     times+=("$t")
   done

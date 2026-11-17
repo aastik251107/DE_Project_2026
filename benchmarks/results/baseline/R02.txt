@@ -1,45 +1,9 @@
-=== R02 run 1 ===
-HashAggregate  (cost=10542.10..10542.11 rows=1 width=44) (actual time=46.179..47.638 rows=1 loops=1)
-  Group Key: driver_id
-  Batches: 1  Memory Usage: 24kB
-  Buffers: shared hit=140 read=5514
-  ->  Gather  (cost=1000.00..10542.08 rows=2 width=14) (actual time=0.410..43.749 rows=18 loops=1)
-        Workers Planned: 2
-        Workers Launched: 2
-        Buffers: shared hit=140 read=5514
-        ->  Parallel Seq Scan on trips  (cost=0.00..9541.88 rows=1 width=14) (actual time=2.520..41.319 rows=6 loops=3)
-              Filter: ((status = 'COMPLETED'::text) AND (driver_id = 217) AND (date(requested_at) >= '2026-03-01'::date) AND (date(requested_at) <= '2026-03-31'::date))
-              Rows Removed by Filter: 99994
-              Buffers: shared hit=140 read=5514
+Run 1:
 Planning Time: 0.192 ms
 Execution Time: 48.610 ms
-=== R02 run 2 ===
-HashAggregate  (cost=10542.10..10542.11 rows=1 width=44) (actual time=44.973..46.393 rows=1 loops=1)
-  Group Key: driver_id
-  Batches: 1  Memory Usage: 24kB
-  Buffers: shared hit=140 read=5514
-  ->  Gather  (cost=1000.00..10542.08 rows=2 width=14) (actual time=0.410..42.606 rows=18 loops=1)
-        Workers Planned: 2
-        Workers Launched: 2
-        Buffers: shared hit=140 read=5514
-        ->  Parallel Seq Scan on trips  (cost=0.00..9541.88 rows=1 width=14) (actual time=2.520..40.239 rows=6 loops=3)
-              Filter: ((status = 'COMPLETED'::text) AND (driver_id = 217) AND (date(requested_at) >= '2026-03-01'::date) AND (date(requested_at) <= '2026-03-31'::date))
-              Rows Removed by Filter: 99994
-              Buffers: shared hit=140 read=5514
+Run 2:
 Planning Time: 0.192 ms
 Execution Time: 47.340 ms
-=== R02 run 3 ===
-HashAggregate  (cost=10542.10..10542.11 rows=1 width=44) (actual time=45.524..46.962 rows=1 loops=1)
-  Group Key: driver_id
-  Batches: 1  Memory Usage: 24kB
-  Buffers: shared hit=140 read=5514
-  ->  Gather  (cost=1000.00..10542.08 rows=2 width=14) (actual time=0.410..43.128 rows=18 loops=1)
-        Workers Planned: 2
-        Workers Launched: 2
-        Buffers: shared hit=140 read=5514
-        ->  Parallel Seq Scan on trips  (cost=0.00..9541.88 rows=1 width=14) (actual time=2.520..40.732 rows=6 loops=3)
-              Filter: ((status = 'COMPLETED'::text) AND (driver_id = 217) AND (date(requested_at) >= '2026-03-01'::date) AND (date(requested_at) <= '2026-03-31'::date))
-              Rows Removed by Filter: 99994
-              Buffers: shared hit=140 read=5514
+Run 3:
 Planning Time: 0.192 ms
 Execution Time: 47.920 ms
