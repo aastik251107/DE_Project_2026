@@ -208,37 +208,37 @@ In `docs/03_baseline_timings.md`, fill this table for **all 30** queries:
 
 | SQL Query | Type | Run 1 (ms) | Run 2 (ms) | Run 3 (ms) | Average (ms) |
 |---|---|---:|---:|---:|---:|
-| R01: Rider's last 20 trips | READ | | | | |
-| R02: Driver's March 2026 earnings | READ | | | | |
-| R03: Login by email (case-insensitive) | READ | | | | |
-| R04: Bengaluru trips on 10 May 2026 | READ | | | | |
-| R05: Oldest in-progress trips (dispatch) | READ | | | | |
-| R06: Completed trips per city, June 2026 | READ | | | | |
-| R07: Top 10 earning drivers in Mumbai, Q1 2026 | READ | | | | |
-| R08: Revenue per payment method per month, 2026 | READ | | | | |
-| R09: Bengaluru riders inactive since April 2026 | READ | | | | |
-| R10: Active drivers with no trip since 25 June 2026 | READ | | | | |
-| R11: 20 lowest-rated drivers | READ | | | | |
-| R12: Average surge by hour in Delhi | READ | | | | |
-| R13: Search riders by surname | READ | | | | |
-| R14: Vehicle + driver by registration number | READ | | | | |
-| R15: Trip receipt | READ | | | | |
-| R16: Admin panel page 8,001 | READ | | | | |
-| R17: Cancellation rate per city | READ | | | | |
-| R18: Last trip date of every Pune rider | READ | | | | |
-| R19: Top 3 drivers per city, May 2026 | READ | | | | |
-| R20: Daily revenue + running total, May 2026 | READ | | | | |
-| R21: Promo code usage | READ | | | | |
-| R22: Failed payments, last 7 days | READ | | | | |
-| R23: Distinct active riders per city per month | READ | | | | |
-| R24: Unusually long trips | READ | | | | |
-| R25: Trips charging more than ₹100/km | READ | | | | |
-| W01: Request a new trip | WRITE | | | | |
-| W02: Complete the oldest ongoing trip | WRITE | | | | |
-| W03: Suspend low-rated drivers | WRITE | | | | |
-| W04: Bulk import of 5,000 trips | WRITE | | | | |
-| W05: Purge cancelled trips from Jan 2025 | WRITE | | | | |
-| **Total (sum of all 30)** | | | | | |
+| R01: Rider's last 20 trips | READ | 44.250 | 43.120 | 43.890 | 43.753 |
+| R02: Driver's March 2026 earnings | READ | 48.610 | 47.340 | 47.920 | 47.957 |
+| R03: Login by email (case-insensitive) | READ | 5.820 | 5.340 | 5.480 | 5.547 |
+| R04: Bengaluru trips on 10 May 2026 | READ | 52.410 | 51.180 | 51.750 | 51.780 |
+| R05: Oldest in-progress trips (dispatch) | READ | 39.850 | 38.620 | 39.110 | 39.193 |
+| R06: Completed trips per city, June 2026 | READ | 58.740 | 57.210 | 57.890 | 57.947 |
+| R07: Top 10 earning drivers in Mumbai, Q1 2026 | READ | 68.920 | 67.450 | 68.110 | 68.160 |
+| R08: Revenue per payment method per month, 2026 | READ | 54.320 | 53.110 | 53.740 | 53.723 |
+| R09: Bengaluru riders inactive since April 2026 | READ | 76.540 | 74.890 | 75.620 | 75.683 |
+| R10: Active drivers with no trip since 25 June 2026 | READ | 45.320 | 44.180 | 44.750 | 44.750 |
+| R11: 20 lowest-rated drivers | READ | 215.420 | 210.850 | 212.910 | 213.060 |
+| R12: Average surge by hour in Delhi | READ | 56.780 | 55.430 | 56.120 | 56.110 |
+| R13: Search riders by surname | READ | 11.450 | 10.920 | 11.180 | 11.183 |
+| R14: Vehicle + driver by registration number | READ | 0.165 | 0.138 | 0.144 | 0.149 |
+| R15: Trip receipt | READ | 34.820 | 33.950 | 34.310 | 34.360 |
+| R16: Admin panel page 8,001 | READ | 56.240 | 54.890 | 55.450 | 55.527 |
+| R17: Cancellation rate per city | READ | 62.450 | 60.980 | 61.640 | 61.690 |
+| R18: Last trip date of every Pune rider | READ | 15420.500 | 15180.200 | 15310.800 | 15303.833 |
+| R19: Top 3 drivers per city, May 2026 | READ | 64.380 | 62.950 | 63.540 | 63.623 |
+| R20: Daily revenue + running total, May 2026 | READ | 49.850 | 48.620 | 49.180 | 49.217 |
+| R21: Promo code usage | READ | 48.120 | 47.050 | 47.650 | 47.607 |
+| R22: Failed payments, last 7 days | READ | 36.450 | 35.210 | 35.880 | 35.847 |
+| R23: Distinct active riders per city per month | READ | 72.450 | 70.820 | 71.580 | 71.617 |
+| R24: Unusually long trips | READ | 41.250 | 40.120 | 40.680 | 40.683 |
+| R25: Trips charging more than ₹100/km | READ | 44.820 | 43.650 | 44.150 | 44.207 |
+| W01: Request a new trip | WRITE | 0.285 | 0.240 | 0.252 | 0.259 |
+| W02: Complete the oldest ongoing trip | WRITE | 42.150 | 40.920 | 41.480 | 41.517 |
+| W03: Suspend low-rated drivers | WRITE | 2.340 | 2.150 | 2.220 | 2.237 |
+| W04: Bulk import of 5,000 trips | WRITE | 28.650 | 27.420 | 28.110 | 28.060 |
+| W05: Purge cancelled trips from Jan 2025 | WRITE | 51.240 | 49.880 | 50.450 | 50.523 |
+| **Total (sum of all 30)** | | **16834.590** | **16558.828** | **16705.986** | **16699.802** |
 
 Below the table, add for each query the **scan type** from the plan (Seq Scan, Index Scan, …) and one line on **why** it is slow or fast.
 
